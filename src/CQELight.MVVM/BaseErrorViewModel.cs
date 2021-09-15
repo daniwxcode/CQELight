@@ -49,11 +49,11 @@ namespace CQELight.MVVM
         /// </summary>
         /// <param name="propertyName">Property name on which we wnat errors..</param>
         /// <returns>All errors for this property name, or empty collection, or null if none.</returns>
-        public IEnumerable? GetErrors(string propertyName)
+        public IEnumerable? GetErrors(string? propertyName)
         {
             if (!string.IsNullOrWhiteSpace(propertyName))
             {
-                return _errors.ContainsKey(propertyName) ? _errors[propertyName] : null;
+                return _errors.ContainsKey(propertyName!) ? _errors[propertyName!] : null;
             }
             return null;
         }

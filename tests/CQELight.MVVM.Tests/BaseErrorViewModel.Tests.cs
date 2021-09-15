@@ -1,5 +1,6 @@
 ﻿using CQELight.TestFramework;
 using FluentAssertions;
+using System.Linq;
 using Xunit;
 
 namespace CQELight.MVVM.Tests
@@ -42,7 +43,7 @@ namespace CQELight.MVVM.Tests
             vm.HasErrors.Should().BeTrue();
             var e = vm.GetErrors("testProperty");
             e.Should().NotBeNull();
-            e.Should().HaveCount(1);
+            e.Cast<string>().Should().HaveCount(1);
         }
 
         [Fact]
@@ -54,7 +55,7 @@ namespace CQELight.MVVM.Tests
             vm.HasErrors.Should().BeTrue();
             var e = vm.GetErrors("testProperty");
             e.Should().NotBeNull();
-            e.Should().HaveCount(1);
+            e.Cast<string>().Should().HaveCount(1);
 
             vm.SimulateFix();
             vm.HasErrors.Should().BeFalse();
